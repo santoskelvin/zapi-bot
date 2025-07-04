@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: zapi-bot
+    env: python
+    repo: https://github.com/<your-username>/zapi-bot
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y chromium-browser && \
+      pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: INSTANCE_ID
+        sync: false
+      - key: INSTANCE_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
