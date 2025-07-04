@@ -3,7 +3,6 @@ services:
     name: zapi-bot
     env: python
     pythonVersion: "3.11"
-    repo: https://github.com/santoskelvin/zapi-bot
     buildCommand: |
       apt-get update && \
       apt-get install -y chromium-browser && \
